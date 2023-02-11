@@ -1,0 +1,17 @@
+<!-- About Section-->
+<section class="page-section bg-dark text-white mb-0" id="about">
+    <div class="container">
+        <app-title [title]="'About Me'" [dark]="false" [main]="false"></app-title>
+                            <!-- Skills Card  -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="font-weight-bold text-dark">Skills</h4>
+                                </div>
+                                <div class="card-body" *ngFor="let item of items">
+                                    <app-skills [info]="item"></app-skills>
+                                </div>
+                            </div>
+
+
+    </div>
+</section>

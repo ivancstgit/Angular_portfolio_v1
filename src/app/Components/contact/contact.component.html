@@ -1,0 +1,13 @@
+<!-- Contact Section-->
+<section class="page-section contact" id="contact">
+    <div class="container">
+        <app-title [title]="'Contact Me'" [dark]="true" [main]="false"></app-title>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto text-center" *ngFor="let item of items">
+                <!-- Social-Contacts Content -->
+                <app-social [info]="item"></app-social>
+            </div>
+        </div>
+    </div>
+</section>

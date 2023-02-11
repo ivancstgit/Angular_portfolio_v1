@@ -1,0 +1,6 @@
+<h4 class="small font-weight-bold text-dark">{{info.name}} <span
+    class="float-right">%{{info.porcent}}</span></h4>
+<div class="progress mb-4">
+<div class="progress-bar {{info.color}}" role="progressbar" [style]="info.style"
+    [attr.aria-valuenow]="info.porcent" aria-valuemin="0" aria-valuemax="100"></div>
+</div>

@@ -1,0 +1,12 @@
+<section class="page-section portfolio bg-info" id="portfolio">
+    <div class="container">
+        <app-title [title]="'Portfolio'" [dark]="true" [main]="false"></app-title>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            <div class="col-md-6 col-lg-4 mb-5" *ngFor="let item of items">
+                <app-imagen-item [info]="item"></app-imagen-item>
+            </div>
+        </div>
+    </div>
+</section>

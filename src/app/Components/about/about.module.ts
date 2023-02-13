@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
-import { HttpClientModule } from '@angular/common/http';
-import { TitleModule } from 'src/app/Widgets/title/title.module';
-import { SkillsModule } from 'src/app/Widgets/skills/skills.module';
+import { TitleModule } from 'src/app/windgets/title/title.module';
+import { SkillsModule } from 'src/app/windgets/skills/skills.module';
 
 
 
@@ -14,7 +13,6 @@ import { SkillsModule } from 'src/app/Widgets/skills/skills.module';
   imports: [
     CommonModule,
     TitleModule,
-    HttpClientModule,
     SkillsModule
   ],
   exports: [AboutComponent]

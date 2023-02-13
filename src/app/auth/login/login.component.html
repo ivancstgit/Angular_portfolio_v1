@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="text-center text-white" style="margin-top: 325px;" *ngIf="isLogged; else loggedOut">
+  <h2>ya has iniciado sesion</h2>
+</div>
+
+<ng-template #loggedOut>
+<div class="login-box" >
+  <h2>Login</h2>
+      <form  #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+        <div class="user-box">
+          <input type="text" name="username" id="nombreUsuario"  [(ngModel)]= "nombreUsuario" required/>
+          <label>Username</label>         
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" id="password"  [(ngModel)]= "password" required/>
+          <label>Password</label>
+        </div>
+        <button type="submit" class=" x">
+            Login
+        </button>
+      </form>
+      
+    <div class="text-danger" *ngIf="f.submitted && isLogginFail">
+      <h2>Error en el login: {{errMsj}}</h2>
+    </div>
+</div>
+</ng-template>
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/Services/api.service';
+import { Persona } from 'src/app/models/persona';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-header',
@@ -9,18 +10,28 @@ import { ApiService } from 'src/app/Services/api.service';
 export class HeaderComponent implements OnInit {
   
   
-  datos:any;
-  
+  persona: Persona;
 
-  constructor(private api:ApiService){
-    
-    this.api.getPersonas().subscribe(response=>{
-      console.log(response);
-    })
+  constructor(
+    private apiService: ApiService,
+    ) { 
+      this.persona= new Persona('','','');
+    }
+
+  ngOnInit() {
+    this.cargarPersona();
   }
 
-  ngOnInit(): void {
-    
+  cargarPersona(): void {
+    this.apiService.listaPersonas().subscribe(
+      data => {
+        this.persona = data[0];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
+
 
 }

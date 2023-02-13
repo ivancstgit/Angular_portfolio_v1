@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/Services/auth.service';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,21 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isLogged=false;
 
-  constructor(){
+  constructor(private tokenService:TokenService, private routes:Router){
 
   }
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    }else{
+      this.isLogged=false;
+    }
+  }
+
+  onLogout(){
+    this.tokenService.logOut();
+    this.routes.navigate(['/login']);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
+import { IModal } from 'src/app/windgets/modal/modal.interface';
 
-import { ApiService } from 'src/app/Services/api.service';
-import { IModal } from 'src/app/Widgets/modal/modal.interface';
 
 @Component({
   selector: 'app-portfolio',
@@ -11,32 +11,28 @@ import { IModal } from 'src/app/Widgets/modal/modal.interface';
 export class PortfolioComponent implements OnInit{
 items: Array<IModal> = [];
 
-public miPortfolio!: Array<any> ;
+public portfolio!: Array<any> ;
 
-constructor(private api:ApiService){}
+constructor(private apiService:ApiService){}
 
 ngOnInit(){
-  /*
-
-  this.miPortfolio= data.portfolio;
-
-  for (let i = 0; i < this.miPortfolio.length; i++) {
-    this.items.push ({
-      title: this.miPortfolio[i].title,
-      image: this.miPortfolio[i].image,
-      description: this.miPortfolio[i].description,}) 
-   }  
-
-  this.datosPortfolio.get('http://localhost:3000/portfolio').
-  subscribe(data =>{
-     this.miPortfolio=data;
-     for (let i = 0; i < this.miPortfolio.length; i++) {
-      this.items.push ({
-        title: this.miPortfolio[i].title,
-        image: this.miPortfolio[i].image,
-        description: this.miPortfolio[i].description,}) 
-     }    
-  })*/
+  this.cargarPortfolio();
 }
 
+cargarPortfolio(){
+     this.apiService.listaPortfolio().subscribe(
+      data => {
+        this.portfolio=data;
+      for (let i = 0; i < this.portfolio.length; i++) {
+      this.items.push ({
+        title: this.portfolio[i].title,
+        image: this.portfolio[i].image,
+        description: this.portfolio[i].description,}) 
+     }    
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

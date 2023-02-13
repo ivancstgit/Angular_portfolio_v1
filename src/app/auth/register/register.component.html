@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="text-center text-white" style="margin-top: 325px;" *ngIf="isLogged; else loggedOut">
+  <h2>ya has iniciado sesion cierrela para crear otra cuenta</h2>
+</div>
+
+<ng-template #loggedOut>
+<div class="login-box" >
+  <h2>Signup</h2>
+      <form  #f="ngForm" (ngSubmit)="onSignUp()" novalidate>
+        <div class="user-box">
+          <input type="text" name="nombre" id="nombre"  [(ngModel)]= "nombre" required/>
+          <label>Name</label>         
+        </div>
+        <div class="user-box">
+          <input type="text" name="username" id="nombreUsuario"  [(ngModel)]= "nombreUsuario" required/>
+          <label>Username</label>         
+        </div>
+        <div class="user-box">
+          <input type="text" name="email" id="email"  [(ngModel)]= "email" required/>
+          <label>Email</label>         
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" id="password"  [(ngModel)]= "password" required/>
+          <label>Password</label>
+        </div>
+        <button type="submit" class=" x">
+            Signup
+        </button>
+      </form>
+</div>
+</ng-template>
+
+

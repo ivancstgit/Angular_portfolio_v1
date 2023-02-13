@@ -1,47 +1,47 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutModule } from './Components/about/about.module';
-import { ContactModule } from './Components/contact/contact.module';
-import { CopyrightModule } from './Components/copyright/copyright.module';
-import { FooterModule } from './Components/footer/footer.module';
-import { HeaderModule } from './Components/header/header.module';
-import { LoginModule } from './Components/login/login.module';
-import { NavbarModule } from './Components/navbar/navbar.module';
-import { PortfolioModule } from './Components/portfolio/portfolio.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeModule } from './Components/home/home.module';
-import { TokenInterceptor } from './Services/token.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HeaderModule } from './components/header/header.module';
+import { HomeModule } from './components/home/home.module';
+import { NavbarModule } from './components/navbar/navbar.module';
+import { interceptorProvider } from './interceptor/prod-interceptor.service';
+import { RegisterModule } from './auth/register/register.module';
+import { LoginModule } from './auth/login/login.module';
+import { PortfolioModule } from './components/portfolio/portfolio.module';
+import { FooterModule } from './components/footer/footer.module';
+import { ContactModule } from './components/contact/contact.module';
+import { AboutModule } from './components/about/about.module';
+import { CopyrightModule } from './components/copyright/copyright.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NavbarModule,
-    LoginModule,
-    HeaderModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule,
-    AboutModule,
-    ContactModule,
-    CopyrightModule,
-    FooterModule,
+    FormsModule,
+    LoginModule,
+    HomeModule,
+    HeaderModule,
+    NavbarModule,
+    RegisterModule,
     PortfolioModule,
+    FooterModule,
+    ContactModule,
     AboutModule,
-    NgbModule,
-    HomeModule
-  
+    CopyrightModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor,
-    multi:true
-  }],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

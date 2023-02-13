@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/Services/api.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,16 +7,18 @@ import { ApiService } from 'src/app/Services/api.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit { 
-  miPortfolio:any = [];
+  datos:any;
 
   constructor(private api:ApiService){}
 
   ngOnInit(): void {
-    /*
-    this.datosPortfolio.get('http://localhost:3000/footer').
-    subscribe(data =>{
-       this.miPortfolio=data[0];
-    })*/
+    this.cargarFooter();
   }
-
+  cargarFooter(){
+    this.datos= {
+        "localidad": "Cordoba, Argentina",
+        "calle": "Calle",
+        "lenguajes": "Español, Ingles Basico"
+      }
+  }
 }

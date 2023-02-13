@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TitleModule } from 'src/app/Widgets/title/title.module';
 import { HeaderComponent } from './header.component';
+import { TitleModule } from 'src/app/windgets/title/title.module';
 
 
 

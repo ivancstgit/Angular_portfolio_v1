@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/Services/auth.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +7,22 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isLogged=false
+  nombreUsuario!:string;
 
-  constructor(private auth: AuthService) { }
+  constructor(private tokenService:TokenService) { }
 
   ngOnInit() {
+    
+    if(this.tokenService.getToken()){
+      this.nombreUsuario=this.tokenService.getUserName()!;
+      this.isLogged=true;
+    }else{
+      this.nombreUsuario='';
+      this.isLogged=false;
+    }
+    
+    
     
   }
 

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioComponent } from './portfolio.component';
-import { HttpClientModule } from '@angular/common/http';
-import { TitleModule } from 'src/app/Widgets/title/title.module';
-import { ImagenItemModule } from 'src/app/Widgets/imagen-item/imagen-item.module';
+import { TitleModule } from 'src/app/windgets/title/title.module';
+import { ImagenItemModule } from 'src/app/windgets/imagen-item/imagen-item.module';
 
 
 
@@ -15,7 +14,6 @@ import { ImagenItemModule } from 'src/app/Widgets/imagen-item/imagen-item.module
     CommonModule,
     TitleModule,
     ImagenItemModule,
-    HttpClientModule
   ],
   exports: [PortfolioComponent]
 })

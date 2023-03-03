@@ -37,7 +37,7 @@ export class ContactComponent {
         {
           "id":4,
           "icon": "fab fa-brands fa-discord",
-          "social_name":"Ivanovich#1054",
+          "social_name":"IvanCasatti#8581",
           "link": "https://discord.com/"
         },
         { "id":5,

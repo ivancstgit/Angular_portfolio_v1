@@ -24,10 +24,19 @@ cargarPortfolio(){
       data => {
         this.portfolio=data;
       for (let i = 0; i < this.portfolio.length; i++) {
-      this.items.push ({
+        if(this.portfolio[i].state){
+          var estado = "Finalizado";
+          var icono = "fa-solid fa-check";
+        }else{
+          var estado = "En Curso";
+          var icono = "fa-solid fa-x";
+        }
+        this.items.push ({
         title: this.portfolio[i].title,
         image: this.portfolio[i].image,
-        description: this.portfolio[i].description,}) 
+        description: this.portfolio[i].description,
+        state: estado,
+        icon: icono,}) 
      }    
       },
       err => {

@@ -13,9 +13,22 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image-->
-                <img class="img-fluid rounded mb-5" src="{{info.image}}" alt="{{info.title}}" />
+                <img class="img-fluid2 rounded mb-5" src="{{info.image}}" alt="{{info.title}}" />
                 <!-- Portfolio Modal - Text-->
                 <p class="mb-4">{{info.description}}</p>
+
+                <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <h5 style="display:flex; padding-top:7px; width: 130px;">
+                        <i style="padding-right: 10px;" class="{{info.icon}}"></i>
+                        {{info.state}}
+                    </h5>
+                </div>
+                
+                <div class="divider-custom-line"></div>
+                </div>
+                
                 <button class="btn btn-primary" data-bs-dismiss="modal" (click)="activeModal.dismiss('Cross click')">
                     <i class="fas fa-xmark fa-fw"></i>
                     Cerrar Ventana

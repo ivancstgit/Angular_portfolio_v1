@@ -8,7 +8,7 @@ import { Persona } from '../models/persona';
 })
 export class ApiService {
 
-  URL = 'http://localhost:8080/';
+  URL = 'https://springboot-portfolio.onrender.com/';
 
   constructor(private httpClient: HttpClient) { }
 

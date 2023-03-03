@@ -32,8 +32,8 @@ export class AboutComponent implements OnInit {
       },
       {
         "id":3,
-        "name": "Concentracion",
-        "porcent": "70",
+        "name": "Adaptabilidad",
+        "porcent": "85",
         "color": "rojo"
       },
       {
@@ -44,8 +44,8 @@ export class AboutComponent implements OnInit {
       },
       {
         "id":5,
-        "name": "Esfuerzo",
-        "porcent": "100",
+        "name": "Creatividad",
+        "porcent": "75",
         "color": "verde"
       }];
        

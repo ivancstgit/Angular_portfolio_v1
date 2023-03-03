@@ -8,7 +8,7 @@ import { IModal } from './modal.interface';
 })
 export class ModalComponent {
   @Input() info!: IModal;
-  constructor(public activeModal: NgbActiveModal) {}
-  
+  constructor(public activeModal: NgbActiveModal) {
+  }
 
 }

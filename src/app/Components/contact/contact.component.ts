@@ -26,7 +26,7 @@ export class ContactComponent {
           "id":2,
           "icon": "fab fa-brands fa-linkedin",
           "social_name":"linkedin-accout",
-          "link": "https://www.linkedin.com/in/ivan-casatti-942214236"
+          "link": "https://www.linkedin.com/in/ivan-casatti-b91a03268"
         },
         {
           "id":3,
@@ -42,7 +42,7 @@ export class ContactComponent {
         },
         { "id":5,
           "icon": "fa-solid fa-envelopes-bulk",
-          "social_name":"casativan@gmail.com",
+          "social_name":"casativanw@gmail.com",
           "link": ""
         },
         {
@@ -62,5 +62,4 @@ export class ContactComponent {
           })
         }
   }
-
 }

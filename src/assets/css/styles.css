@@ -11395,7 +11395,7 @@ html {
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
   #mainNav .navbar-brand {
-    font-size: 1.75em;
+    font-size: 1.5em;
     transition: font-size 0.3s;
   }
   #mainNav .navbar-nav {
@@ -11527,6 +11527,13 @@ html {
   background-color: white;
 }
 
+.experiencia{
+  background-color: #4695db;
+}
+
+.formacion{
+  background-color: #24537d;
+}
 
 .background_root{
   margin:0;

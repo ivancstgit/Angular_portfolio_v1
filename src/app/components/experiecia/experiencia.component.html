@@ -1,0 +1,10 @@
+<section class="page-section experiencia portfolio" id="experiencia">
+    <div class="container">
+        <app-title [title]="'Experience'" [dark]="true" [main]="false"></app-title>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-5" *ngFor="let item of items">
+                <app-imagen-item [info]="item"></app-imagen-item>
+            </div>
+        </div>
+    </div>
+</section>

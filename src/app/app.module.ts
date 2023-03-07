@@ -17,6 +17,8 @@ import { FooterModule } from './components/footer/footer.module';
 import { ContactModule } from './components/contact/contact.module';
 import { AboutModule } from './components/about/about.module';
 import { CopyrightModule } from './components/copyright/copyright.module';
+import { FormacionModule } from './components/formacion/formacion.module';
+import { ExperienciaModule } from './components/experiecia/experiencia.module';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CopyrightModule } from './components/copyright/copyright.module';
     FooterModule,
     ContactModule,
     AboutModule,
-    CopyrightModule
+    CopyrightModule,
+    FormacionModule,
+    ExperienciaModule
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

@@ -8,6 +8,8 @@ import { AboutModule } from '../about/about.module';
 import { PortfolioModule } from '../portfolio/portfolio.module';
 import { CopyrightModule } from '../copyright/copyright.module';
 import { ContactModule } from '../contact/contact.module';
+import { ExperienciaModule } from '../experiecia/experiencia.module';
+import { FormacionModule } from '../formacion/formacion.module';
 
 
 
@@ -23,7 +25,9 @@ import { ContactModule } from '../contact/contact.module';
     AboutModule,
     PortfolioModule,
     CopyrightModule,
-    ContactModule
+    ContactModule,
+    ExperienciaModule,
+    FormacionModule
     
   ]
 })

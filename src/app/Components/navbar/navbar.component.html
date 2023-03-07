@@ -3,20 +3,21 @@
         <a class="navbar-brand" href="/home#page-top">My Portfolio</a>
         <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <ul class="navbar-nav ms-auto">
-            <li  *ngIf="!isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login"><i class="fas fa-door-open"></i>  Login</a></li>
-            <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1" (click)="onLogout()"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="cursor: pointer;" ><i class="fas fa-sign-in-alt"></i>  Cerrar sesion</a></li>
-            <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/register"><i class="fa-regular fa-user"></i>  Sign up</a></li>
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1 h6" (click)="onLogout()"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="cursor: pointer;" ><i class="fas fa-sign-in-alt"></i>  Log Out</a></li>
+                <li  *ngIf="!isLogged" class="nav-item mx-0 mx-lg-1 h6"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login"><i class="fas fa-door-open"></i>  Login</a></li>
+                <li  *ngIf="!isLogged" class="nav-item mx-0 mx-lg-1 h6"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/register"><i class="fa-regular fa-user"></i>  Sign up</a></li>
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#portfolio">Portfolio</a></li>
-                <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#about">About</a></li>
-                <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#contact">Contact</a></li>
-                <li  *ngIf="!isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login"><i class="fas fa-door-open"></i>  Login</a></li>
-                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1" (click)="onLogout()"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="cursor: pointer;" ><i class="fas fa-sign-in-alt"></i>  Log Out</a></li>
-                <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/register"><i class="fa-regular fa-user"></i>  Sign up</a></li>
-                
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#experiencia">Experience</a></li>
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#portfolio">Formacion</a></li>
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#portfolio">Proyects</a></li>
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#about">About</a></li>
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/home#contact">Contact</a></li>
+                <li  *ngIf="isLogged" class="nav-item mx-0 mx-lg-1 h6" (click)="onLogout()"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="cursor: pointer;" ><i class="fas fa-sign-in-alt"></i>  Log Out</a></li>
+                <li  *ngIf="!isLogged" class="nav-item mx-0 mx-lg-1 h6"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login"><i class="fas fa-door-open"></i>  Login</a></li>
+                <li  *ngIf="!isLogged" class="nav-item mx-0 mx-lg-1 h6"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/register"><i class="fa-regular fa-user"></i>  Sign up</a></li>
             </ul>
         </div>
     </div>

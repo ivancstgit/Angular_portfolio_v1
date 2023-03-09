@@ -4,3 +4,42 @@
 <div class="progress-bar {{info.color}}" role="progressbar" [style]="info.style"
     [attr.aria-valuenow]="info.porcent" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+
+<div *ngIf="isAdmin" class="container">
+<button class="btn btn-warning" (click)="toggleInputNew()"><i class="far fa-edit"></i> Editar</button>
+<button class="btn btn-danger" (click)="borrar()"><i class="far fa-trash-alt"></i> Eliminar</button>
+
+<form (ngSubmit)="onUpdate()"  style="margin-top: 10px;" [style.display]="mostrarInput ? 'flex' : 'none'" novalidate #f="ngForm">
+    <div class="selectInput">
+        <div class="form-group">
+            <label class="text-dark" for="nombre">Skill</label>
+            <input type="text" class="form-control" id="name{{info.id}}" name="name" [(ngModel)]="data.name" required>
+        </div>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <div class="form-group">
+            <label class="text-dark" for="porcentaje">Porcentaje</label>
+            <input type="number" class="form-control" id="porcent{{info.id}}" name="porcent" [(ngModel)]="data.porcent"
+            required >
+        </div>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <div class="form-group">
+            <label class="text-dark" for="color">Color</label>
+            <select name="color" id="color{{info.id}}" class="form-select" required>
+                <option value="rojo">Rojo</option>
+                <option value="amarillo">Amarillo</option>
+                <option value="verde">Verde</option>
+                <option value="gris">Gris</option>
+                <option value="azul">Azul</option>
+            </select>
+        </div>
+        <div class="botones form-group" style="padding-top: 30px;">
+            <label for="vacio">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <button type="submit" class="btn btn-success" [disabled]="!f.valid">
+                <i class="fas fa-pencil-alt"></i> Actualizar</button>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <button type="button" class="btn btn-danger" (click)="toggleInputNew()">
+                <i class="fas fa-arrow-alt-circle-left"></i> Cancelar</button>
+        </div> 
+    </div>
+</form>
+</div>

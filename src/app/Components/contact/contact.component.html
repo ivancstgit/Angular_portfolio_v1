@@ -1,6 +1,34 @@
 <!-- Contact Section-->
 <section class="page-section contact" id="contact">
     <div class="container">
+        <button *ngIf="isAdmin" (click)="toggleInputNew()" class="btn btn-success btn-lg" style="margin-top: -100px;">
+            <i class="fas fa-plus-circle"></i> Add</button>
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm" >
+        <div class="selectInput" style="margin-top: -25px; margin-bottom: 25px;" [style.display]="mostrarInput ? 'flex' : 'none'">
+            <div class="form-group">
+                <label for="nombre">Social Name</label>
+                <input type="text" class="form-control" name="nombre" id="socialName" required>
+            </div>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="form-group">
+                <label for="icono">Icono</label>
+                <input type="text" class="form-control" name="icon" id="icon" required>
+            </div>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="form-group">
+                <label for="link">Link</label>
+                <input type="text" class="form-control" name="link" id="link">
+            </div>
+            <div class="botones form-group" style="padding-top: 30px;">
+                <label for="vacio">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+                    <i class="fas fa-pencil-alt"></i> Nuevo</button>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button type="button" class="btn btn-danger" (click)="toggleInputNew()">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Cancelar</button>
+            </div>
+        </div>
+    </form>
         <app-title [title]="'Contact Me'" [dark]="true" [main]="false"></app-title>
         <!-- About Section Content-->
         <div class="row">

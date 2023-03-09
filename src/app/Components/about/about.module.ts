@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
 import { TitleModule } from 'src/app/windgets/title/title.module';
 import { SkillsModule } from 'src/app/windgets/skills/skills.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { SkillsModule } from 'src/app/windgets/skills/skills.module';
   imports: [
     CommonModule,
     TitleModule,
-    SkillsModule
+    SkillsModule,
+    FormsModule
   ],
   exports: [AboutComponent]
 })

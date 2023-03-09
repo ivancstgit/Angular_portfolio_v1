@@ -50,4 +50,15 @@ export class TokenService {
   public logOut(): void {
     sessionStorage.clear();
   }
+
+
+  public isAdmin():boolean{
+    var res = false
+    this.getAuthorities().forEach( rol=>{
+      if(rol ==='ROLE_ADMIN'){
+        res=true;
+      }})
+      return res;
+  }
+
 }

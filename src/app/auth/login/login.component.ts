@@ -34,8 +34,6 @@ roles:string[] =[];
       this.roles = this.tokenService.getAuthorities();
 
     }
-
-    console.log(this.isLogged);
   }
 
 

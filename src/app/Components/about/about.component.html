@@ -1,16 +1,50 @@
 <!-- About Section-->
 <section class="page-section bg-dark text-white mb-0" id="about">
     <div class="container">
+        <button *ngIf="isAdmin" (click)="toggleInputNew()" class="btn btn-success btn-lg" style="margin-top: -100px;">
+            <i class="fas fa-plus-circle"></i> Add</button>
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm" >
+        <div class="selectInput" style="margin-top: -25px; margin-bottom: 25px;" [style.display]="mostrarInput ? 'flex' : 'none'">
+            <div class="form-group">
+                <label for="nombre">Skill</label>
+                <input type="text" class="form-control" name="nombre" id="nuevoNom" required>
+            </div>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="form-group">
+                <label for="porcentaje">Porcentaje</label>
+                <input type="number" class="form-control" name="porc" id="nuevoPorc" required>
+            </div>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <select name="color" id="color" class="form-select" required>
+                    <option value="rojo">Rojo</option>
+                    <option value="amarillo">Amarillo</option>
+                    <option value="verde">Verde</option>
+                    <option value="gris">Gris</option>
+                    <option value="azul">Azul</option>
+                </select>
+            </div>
+            <div class="botones form-group" style="padding-top: 30px;">
+                <label for="vacio">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+                    <i class="fas fa-pencil-alt"></i> Nuevo</button>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button type="button" class="btn btn-danger" (click)="toggleInputNew()">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Cancelar</button>
+            </div> 
+        </div>
+    </form>
         <app-title [title]="'About Me'" [dark]="false" [main]="false"></app-title>
-                            <!-- Skills Card  -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h4 class="font-weight-bold text-dark">Skills</h4>
-                                </div>
-                                <div class="card-body" *ngFor="let item of items">
-                                    <app-skills [info]="item"></app-skills>
-                                </div>
-                            </div>
+        <!-- Skills Card  -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4 class="font-weight-bold text-dark">Skills</h4>
+            </div>
+            <div class="card-body" *ngFor="let item of items">
+                <app-skills [info]="item"></app-skills>
+            </div>
+        </div>
 
 
     </div>

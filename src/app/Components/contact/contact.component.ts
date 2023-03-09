@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { IContact } from 'src/app/models/IContact';
 import { ApiService } from 'src/app/service/api.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,57 +12,80 @@ import { ApiService } from 'src/app/service/api.service';
 export class ContactComponent {
   items: Array<any> = [];
   var!:string;
-  public miPortfolio!: Array<any> ;
+  mostrarInput=false;
+  public miPortfolio!: Array<any>;
+  icon!:string;
+  social_name!:string;
+  link!:string;
+  contact!:IContact;
+  isAdmin=false;
   
-  constructor(private api:ApiService){}
+  constructor(private api:ApiService,private toastr:ToastrService,private tokenService:TokenService){}
   
   ngOnInit(){
-    
-       this.miPortfolio=[
-        {
-          "id":1,
-          "icon": "fab fa-brands fa-instagram",
-          "social_name": "@ivancstt",
-          "link": "https://www.instagram.com/"
-        },
-        {
-          "id":2,
-          "icon": "fab fa-brands fa-linkedin",
-          "social_name":"linkedin-accout",
-          "link": "https://www.linkedin.com/in/ivan-casatti-b91a03268"
-        },
-        {
-          "id":3,
-          "icon": "fa-solid fa-mobile",
-          "social_name":"+543543617090",
-          "link": ""
-        },
-        {
-          "id":4,
-          "icon": "fab fa-brands fa-discord",
-          "social_name":"IvanCasatti#8581",
-          "link": "https://discord.com/"
-        },
-        { "id":5,
-          "icon": "fa-solid fa-envelopes-bulk",
-          "social_name":"casativanw@gmail.com",
-          "link": ""
-        },
-        {
-          "id":6,
-          "icon": "fab fa-brands  fa-github",
-          "social_name":"IvanCsTGit",
-          "link": "https://github.com/IvanCsTGit"
-        }
-      ];
-
-
-       for (let i = 0; i < this.miPortfolio.length; i++) {
-        this.items.push ({
-          icon: this.miPortfolio[i].icon,
-          social_name: this.miPortfolio[i].social_name,
-          link: this.miPortfolio[i].link,
-          })
-        }
+      this.isAdmin = this.tokenService.isAdmin();
+      
+      this.api.listaContact().subscribe(
+        data=>{
+          this.miPortfolio=data
+          for (let i = 0; i < this.miPortfolio.length; i++) {
+           this.items.push ({
+             id: this.miPortfolio[i].id,
+             icon: this.miPortfolio[i].icon,
+             social_name: this.miPortfolio[i].social_name,
+             link: this.miPortfolio[i].link,
+             })
+           }
+        });
+       
+        
   }
+
+
+  toggleInputNew(){
+    (<HTMLInputElement>document.getElementById('socialName')).value='';
+    (<HTMLInputElement>document.getElementById('icon')).value='';
+    (<HTMLInputElement>document.getElementById('link')).value='';
+    this.mostrarInput = !this.mostrarInput;
+  }
+
+  onCreate(){
+
+    this.loadInputSelect()
+    
+    this.contact = new IContact(
+      this.icon,
+      this.social_name,
+      this.link)
+
+      if(this.icon!="" && this.social_name!=""){
+    this.api.saveContact(this.contact).subscribe(
+    data=>{
+      this.toastr.success('Creado correctamente', 'OK', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      location.reload();
+    },
+    err => {
+      this.toastr.error(err.error.mensaje, 'Fail', {
+        timeOut: 3000,  positionClass: 'toast-top-center',
+      });
+    }
+  )
+    }else{
+      this.toastr.error('Complete los campos icono y social name','Fail',{
+        timeOut: 1000,  positionClass: 'toast-top-center'});
+    }
+  }
+
+  loadInputSelect(){
+    
+    this.icon = (<HTMLInputElement>document.getElementById('icon')).value;
+    this.social_name = (<HTMLInputElement>document.getElementById('socialName')).value;
+    this.link = (<HTMLSelectElement>document.getElementById('link')).value;
+
+  }
+
+
+ 
 }

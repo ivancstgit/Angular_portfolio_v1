@@ -4,3 +4,7 @@
     </div>
     <img class="img-fluid" src="{{info.image}}" alt="{{info.title}}"/>
 </div>
+<div *ngIf="isAdmin" class="d-flex justify-content-center">
+    <button class="btn btn-warning" routerLink="/editar/{{info.id}}"><i class="far fa-edit"></i> Editar</button>
+    <button class="btn btn-danger" (click)="borrar()"><i class="far fa-trash-alt"></i> Eliminar</button>
+</div>

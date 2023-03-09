@@ -33,8 +33,6 @@ roles:string[] =[];
     if(this.tokenService.getToken()){
       this.isLogged=true;
     }
-
-    console.log(this.isLogged);
   }
 
 

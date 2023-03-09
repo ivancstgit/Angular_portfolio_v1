@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
+import { TokenService } from 'src/app/service/token.service';
 import { IModal } from 'src/app/windgets/modal/modal.interface';
 
 
@@ -8,14 +10,44 @@ import { IModal } from 'src/app/windgets/modal/modal.interface';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent{
-items: Array<IModal> = [];
-ngOnInit(){
-  this.items.push ({
-    title: "Argentina Programa",
-    image: "https://sursantiago.com.ar/wp-content/uploads/2022/02/argentina-programa-llego-a-los-santiaguenos.jpg",
-    description: "Conocimientos de desarrollo full stack vistos en Argentina Programa y la creacion de un portfolio web, con el frontend desplegado en Firebase, el backend en Render y la utilizacion de una base de datos en Clever Cloud",
-    state: "Finalizado",
-    icon: "fa-solid fa-check",
-})
-}
+  titulo="exp";
+  items: Array<IModal> = [];
+  isAdmin = false;
+
+  public portfolio!: Array<any> ;
+  
+  constructor(private apiService:ApiService, private tokenService:TokenService){}
+  
+  ngOnInit(){
+    this.isAdmin = this.tokenService.isAdmin();
+    this.cargarPortfolio();
+  }
+  
+  cargarPortfolio(){
+       this.apiService.listaPortfolioByType("exp").subscribe(
+        data => {
+          this.portfolio=data;
+        for (let i = 0; i < this.portfolio.length; i++) {
+          if(this.portfolio[i].state){
+            var estado = "Finalizado";
+            var icono = "fa-solid fa-check";
+          }else{
+            var estado = "En Curso";
+            var icono = "fa-solid fa-x";
+          }
+          this.items.push ({
+          id:this.portfolio[i].id,
+          title: this.portfolio[i].title,
+          image: this.portfolio[i].image,
+          description: this.portfolio[i].description,
+          state: estado,
+          icon: icono,
+          type: "exp"}) 
+       }    
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
 }

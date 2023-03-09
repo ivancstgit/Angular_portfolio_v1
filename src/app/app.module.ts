@@ -19,6 +19,8 @@ import { AboutModule } from './components/about/about.module';
 import { CopyrightModule } from './components/copyright/copyright.module';
 import { FormacionModule } from './components/formacion/formacion.module';
 import { ExperienciaModule } from './components/experiecia/experiencia.module';
+import { EditarExpModule } from './altaMod/editar.module';
+import { NuevoExpModule } from './altaMod/nuevo.module';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ExperienciaModule } from './components/experiecia/experiencia.module';
     AboutModule,
     CopyrightModule,
     FormacionModule,
-    ExperienciaModule
+    ExperienciaModule,
+    EditarExpModule,
+    NuevoExpModule
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
